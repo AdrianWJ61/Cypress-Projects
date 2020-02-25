@@ -1,0 +1,15 @@
+{
+  "name": "first-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^4.0.2",
+    "cypress-iframe": "^1.0.1"
+  }
+}
