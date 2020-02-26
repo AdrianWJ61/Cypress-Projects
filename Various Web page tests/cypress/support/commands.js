@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+import '@4tw/cypress-drag-drop'
 
 Cypress.Commands.add(
     'iframeLoaded',
@@ -56,6 +57,6 @@ Cypress.Commands.add(
 // https://github.com/cypress-io/cypress/issues/781
 // https://github.com/cypress-io/cypress/issues/408
   Cypress.Commands.add('clearCookiesLocalStorage', () => {
-    cy.clearLocalStorage()
-    cy.clearCookies({ domain: null })
+    cy.clearCookies({ domain: null });
+    cy.clearLocalStorage();
   })
