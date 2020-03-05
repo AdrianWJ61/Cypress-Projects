@@ -15,8 +15,8 @@ export class GoogleTrendsPage {
         cy.get('md-sidenav', {timeout : 10000}).should('be.visible')
     }
 
-    selectExplore() {
-        cy.get('.side-nav-bar-item-content > .fe-sidenav-menu-item-link > .md-button').contains('Explore').click()
+    selectSideNavOption(option) {
+        cy.get('.side-nav-bar-item-content > .fe-sidenav-menu-item-link > .md-button').contains(option).click()
     }
 
     searchFieldVisible() {
@@ -93,5 +93,9 @@ export class GoogleTrendsPage {
 
     checkCorrectYearSelected(yearSelected) {
         cy.get('custom-date-picker', {timeout : 10000}).first().should('include.text', yearSelected)
+    }
+
+    getSubPageTitle() {
+        return cy.get('.header-sub-title')
     }
 }

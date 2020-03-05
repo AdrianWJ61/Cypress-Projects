@@ -1,9 +1,9 @@
 "use strict"
+/// <reference types="cypress" />
 
 // Test snapshots using: https://github.com/palmerhq/cypress-image-snapshot
 // Run Cypress with --env updateSnapshots=true in order to update the base image files for all of your tests.
 
-/// <reference types="cypress" />
 
 import {GoogleTrendsPage} from '../../pageObjects/googleTrendsPage.js'
 
@@ -15,7 +15,7 @@ describe('Test Google Trends', function() {
     const YEAR = '2019'
 
 
-    before(() => {
+    beforeEach(() => {
         googleTrendsPage.navigate()
     })
 
@@ -25,7 +25,7 @@ describe('Test Google Trends', function() {
         googleTrendsPage.checkSideNavigatioOpen()
 
         // Select explore from side navigation 
-        googleTrendsPage.selectExplore()
+        googleTrendsPage.selectSideNavOption('Explore')
 
         // Check search field and example charts are visible
         googleTrendsPage.searchFieldVisible()
@@ -65,5 +65,15 @@ describe('Test Google Trends', function() {
         
         // Check for year selected
         googleTrendsPage.checkCorrectYearSelected(YEAR)
+    })
+
+    it('Select "Trending Searches" from side navigation', () => {
+        // Open side navigation and check visible
+        googleTrendsPage.openSideNavigation()
+        googleTrendsPage.checkSideNavigatioOpen()
+
+        // Select 'Trending Searchis' and confirm page title
+        googleTrendsPage.selectSideNavOption('Trending Searches')
+        googleTrendsPage.getSubPageTitle().should('include.text', 'Trending Searches')
     })
 })
