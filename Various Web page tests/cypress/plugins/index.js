@@ -17,10 +17,18 @@
  */
 
 const initCypressMousePositionPlugin = require('cypress-mouse-position/plugin');
+const {addMatchImageSnapshotPlugin,} = require('cypress-image-snapshot/plugin');
+
+module.exports = (on, config) => {
+  
+};
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 
   initCypressMousePositionPlugin(on);
+  addMatchImageSnapshotPlugin(on, config);
 }
+
+

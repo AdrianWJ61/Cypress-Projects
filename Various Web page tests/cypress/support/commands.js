@@ -26,6 +26,9 @@
 
 import '@4tw/cypress-drag-drop'
 
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+addMatchImageSnapshotCommand();
+
 Cypress.Commands.add(
     'iframeLoaded',
     { prevSubject: 'element' },
