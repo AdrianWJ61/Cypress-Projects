@@ -1,3 +1,5 @@
+"use strict"
+
 // Test snapshots using: https://github.com/palmerhq/cypress-image-snapshot
 // Run Cypress with --env updateSnapshots=true in order to update the base image files for all of your tests.
 
@@ -8,6 +10,10 @@ import {GoogleTrendsPage} from '../../pageObjects/googleTrendsPage.js'
 
 describe('Test Google Trends', function() {
     const googleTrendsPage = new GoogleTrendsPage()
+    const SEARCH_ONE = 'Selenium automation'
+    const SEARCH_TWO = 'Cypress.io automation'
+    const YEAR = '2019'
+
 
     before(() => {
         googleTrendsPage.navigate()
@@ -26,7 +32,7 @@ describe('Test Google Trends', function() {
         googleTrendsPage.exampleChartsVisible()
         
         // Enter first search term and wait for sugestions to be visible then select enter
-        googleTrendsPage.enterFirstSearchQuery('Selenium automation')
+        googleTrendsPage.enterFirstSearchQuery(SEARCH_ONE)
         googleTrendsPage.firstSearchSuggestionsVisable()
         googleTrendsPage.selectEnterFirstSearch()
 
@@ -35,7 +41,7 @@ describe('Test Google Trends', function() {
                 
         // Enter second search term and wait for sugestions to be visible then select enter
         googleTrendsPage.clickOnSecondSearch()
-        googleTrendsPage.enterSecondSearchQuery('Cypress.io automation')
+        googleTrendsPage.enterSecondSearchQuery(SEARCH_TWO)
         googleTrendsPage.secondSearchSuggestionsVisible()
         googleTrendsPage.selectEnterSecondSearch()
         
@@ -49,7 +55,7 @@ describe('Test Google Trends', function() {
         // Select year
         googleTrendsPage.selectFullYearOption()
         googleTrendsPage.selectYearChooser()
-        googleTrendsPage.selectYearAndOk('2019')
+        googleTrendsPage.selectYearAndOk(YEAR)
 
         // check charts visible
         googleTrendsPage.checkYearChartsVisible()
@@ -58,6 +64,6 @@ describe('Test Google Trends', function() {
         googleTrendsPage.checkYearChartSnapshot()
         
         // Check for year selected
-        googleTrendsPage.checkCorrectYearSelected('2019')
+        googleTrendsPage.checkCorrectYearSelected(YEAR)
     })
 })

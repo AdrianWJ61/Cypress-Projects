@@ -1,5 +1,7 @@
 "use strict";
 
+/// <reference types="cypress" />
+
 export class GoogleTrendsPage {
     navigate() {
         cy.visit('https://trends.google.com')
