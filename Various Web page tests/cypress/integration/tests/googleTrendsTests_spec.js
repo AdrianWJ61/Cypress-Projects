@@ -4,7 +4,7 @@
 // Test snapshots using: https://github.com/palmerhq/cypress-image-snapshot
 // Run Cypress with --env updateSnapshots=true in order to update the base image files for all of your tests.
 
-
+// Separate page object created: googleTrendsPage.js
 import {GoogleTrendsPage} from '../../pageObjects/googleTrendsPage.js'
 
 
