@@ -29,6 +29,13 @@ describe('Test Google search page', function() {
         cy.get('.gb_D').should('have.attr', 'href', 'https://www.google.co.uk/intl/en/about/products?tab=wh');
         cy.get('#gbwa').click();
     })
+    
+    it('Check get response from Google Apps page', () => {
+        cy.request('https://www.google.co.uk/intl/en/about/products?tab=wh')
+        .then((response) => {
+            expect(response.status).to.eq(200)
+        })
+     })
 
     it('Entering a search returns results', () => {
         cy.get('.gLFyf').type('cypress.io');
